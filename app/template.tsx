@@ -1,0 +1,13 @@
+"use client";
+import { MotionConfig, motion } from "motion/react";
+
+// A template remounts on every navigation, which gives each page the same soft entrance.
+export default function Template({ children }: { children: React.ReactNode }) {
+  return (
+    <MotionConfig reducedMotion="user">
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+        {children}
+      </motion.div>
+    </MotionConfig>
+  );
+}
